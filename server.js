@@ -7,7 +7,11 @@ console.log(process.env.STEAM_API_KEY);
 const app = express();
 const port = 3000;
 
-app.get("/steam-data/:steamId", async (req, res) => {
+app.get("/", (req, res) => {
+  res("KF2 Tracker");
+});
+
+app.get("/:steamId", async (req, res) => {
   try {
     console.log(
       `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=232090&key=${process.env.STEAM_API_KEY}&steamid=${req.params.steamId}/`

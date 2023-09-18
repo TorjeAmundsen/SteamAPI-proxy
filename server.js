@@ -2,10 +2,8 @@ import express from "express";
 import axios from "axios";
 import "dotenv/config";
 
-console.log(process.env.STEAM_API_KEY);
-
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res("KF2 Tracker");
